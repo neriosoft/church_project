@@ -1,0 +1,64 @@
+{% extends 'pages/base.html' %}
+<!--Content below-->
+
+{% load static %}
+
+<!--load body here-->
+{% block content %}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-3 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center py-3 mt-3">
+    <h1 class="display-2 text-white mb-3 animated slideInDown">Gallery</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item" aria-current="page">gallery</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<div class="container-lg text-center">
+  <div class="mb-5 mt-4">
+    <h1 class="display-4">Our Church Photography</h1>
+  </div>
+  {% if not galleries %}
+  <h4 class="text-center">No gallery currently. Check back on this page. Thank you. </h4> 
+  {% endif %}
+  <!--images-->
+
+  <div class="row justify-content-lg-center py-2 my-5">
+    {% for gallery in galleries %}
+    <div class="col-lg-4 col-sm-12 mb-4">
+      <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#{{gallery.popup_id}}">
+        <img src="{{gallery.image.url}}" alt="{{gallery.title}}" />
+        <div class="overlay">
+          <h3 class="text-white">{{gallery.title}}</h3>
+          <p>{{gallery.description}}</p>
+        </div>
+      </div>
+    </div>
+
+     <!-- Popup modals -->
+  <div class="modal fade" id="{{gallery.popup_id}}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <img src="{{gallery.image.url}}" alt="Image 1" />
+      </div>
+    </div>
+  </div>
+  <!--pop up end-->
+
+{% endfor %}
+</div>
+  <!--images end-->
+
+
+  
+
+</div>
+</div>
+  {% endblock %}
+

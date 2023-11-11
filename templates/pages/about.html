@@ -1,0 +1,153 @@
+{% extends 'pages/base.html' %}
+<!--about-->
+{% load static %}
+<!--content-->
+
+{% block content %}
+<!--start-->
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-3 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center py-3 mt-3">
+    <h1 class="display-2 text-white mb-3 animated slideInDown">About</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item" aria-current="page">About</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<div class="container-fluid container-team py-5">
+  <div class="container pb-5">
+    <div class="row g-5 align-items-center mb-5">
+      <div class="col-md-6 wow fadeIn" data-wow-delay="0.5s">
+        <h2 class="display-6 mb-3">Our beliefs</h2>
+        <p class="mb-4">
+          We are a Pentecostal, Christian Church and our full name is: The Body
+          of Christ Mission (SOLUTION GROUND).
+        </p>
+      </div>
+      <div class="col-md-6 wow fadeIn" data-wow-delay="0.5s">
+        <h2 class="display-6 mt-5">Our Vision</h2>
+        <p class="mb-4">
+          The Restoration, Edification, Transformation and preparation of
+          believers through the ministry of the Word, the manifestation of the
+          Holy Spirit and the demonstration of power with miracles, signs and
+          wonders following. John 4:48
+        </p>
+      </div>
+      <div class="col-md-6 wow fadeIn" data-wow-delay="0.5s">
+        <h2 class="display-6 mb-3">Our Mission</h2>
+        <p class="mb-4">
+          To preach the gospel (good news) of Jesus Christ to all the nations of
+          the earth, making disciples of all kinds of people, teaching them to
+          observe all things that Jesus Christ has commanded. Matthew 28: 19-20
+        </p>
+      </div>
+      <div class="col-md-6 wow fadeIn" data-wow-delay="0.5s">
+        <h2 class="display-6 mb-3">Our Goal</h2>
+        <p class="mb-4">
+          Connecting humanity to God to live a godly life, helping them to be
+          fruitful, subdue and dominate the earth, delivering them to live a
+          Holy life and to possess their possessions. Obadiah 1:17
+        </p>
+      </div>
+      <div class="col-md-6 wow fadeIn" data-wow-delay="0.5s">
+        <h2 class="display-6 mb-3">Our Belief</h2>
+        <p class="mb-4">
+          We believe in Trinity, that God the father, Jesus Christ his son and
+          the Holy Spirit are one God. Man is a spirit, he has a soul and lives
+          in the body. Water Baptism symbolizes our identification with Jesus’
+          death, burial and resurrection. It is the next step Christians take
+          after conversion and having been born again at a certain age when they
+          are old enough to take a personal decision. Matthew 28:19 The
+          infilling and indwelling of the Holy Spirit is vital to our Christian
+          growth, to enable us manifest the gifts of the Holy Spirit and produce
+          the fruits of the Holy Spirit. 1 Corinthians 12:8-10,
+          Galatians 5:22-23
+        </p>
+      </div>
+      <div class="col-md-6 wow fadeIn" data-wow-delay="0.5s"></div>
+      <div class="col-md-6 wow fadeIn" data-wow-delay="0.3s">
+        <img
+          class="img-fluid w-100"
+          src="{% static 'pages/img/head-1.jpg' %}"
+          alt=""
+        />
+      </div>
+      <div class="col-md-6 wow fadeIn" data-wow-delay="0.5s">
+        <h1 class="display-6 mb-3">Rev. Felix Oje Uankhoba</h1>
+        <p class="mb-1"><strong>Lead Pastor</strong></p>
+        <p class="mb-5">
+          Woolwich Polytechnic For Boys Hutchins Road, Thamesmead SE28 8AT
+        </p>
+        <h3 class="mb-3">Biography</h3>
+        <p class="mb-4">
+          He is the founder of The Body of Christ Mission in Barcelona, Kingdom
+          of Spain, where he obtained an honor as Catalunya best man of the year
+          award, presented by the Catalunya state government, Nigeria High
+          commission in Spain and the Nigerian Community in Spain for his
+          selfless service to humanity, his passion for God and compassion for
+          people
+        </p>
+        <p class="mb-4">
+          He operates a prison and hospital ministry where God uses him mightily
+          to bring restoration, healing and deliverance to many people.
+        </p>
+        <div class="d-flex">
+          <a class="btn btn-lg-square btn-primary me-2" href=""
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a class="btn btn-lg-square btn-primary me-2" href=""
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a class="btn btn-lg-square btn-primary me-2" href=""
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a class="btn btn-lg-square btn-primary me-2" href=""
+            ><i class="fab fa-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <div class="row g-4">
+
+      {% for team in teams %}
+      <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="team-item">
+          <div class="position-relative overflow-hidden">
+            <img
+              class="img-fluid w-100"
+              src="{{team.image.url}}"
+              alt=""
+            />
+            <div class="team-social">
+              <a class="btn btn-square btn-light mx-1" href="{{team.facebook_url}}"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a class="btn btn-square btn-light mx-1" href="{{team.twitter_url}}"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a class="btn btn-square btn-light mx-1" href="{{team.linkedin_url}}"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="text-center p-4">
+            <h5 class="mb-1">{{team.name}}</h5>
+            <span>{{team.title}}</span>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+     
+
+    </div>
+  </div>
+  <!-- Team End -->
+</div>
+</div>
+  {% endblock %}
+</div>

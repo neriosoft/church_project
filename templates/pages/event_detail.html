@@ -1,0 +1,30 @@
+{% extends "pages/base.html" %}
+<!--static-->
+{% load static %}
+<!--content-->
+
+{% block content %}
+<!--content-->
+<!-- Page Header Start -->
+<div
+  class="container-fluid py-3 wow fadeIn mt-n5"
+  data-wow-delay="0.1s"
+  style="background:url('{{event.image.url}}'); max-width:100%;"
+>
+  <div class="container text-center py-3 mt-3">
+    <h1 class="display-2 text-white">Event</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <div class="breadcrumb justify-content-center mb-0">
+        <div class="">
+          <span class="badge">Events</span>
+        </div>
+        <h1 class="text-white">{{event.title}}</h1>
+      </div>
+    </nav>
+  </div>
+</div>
+<!-- Page Header End -->
+<div class="container my-5">
+  <p class="text-black">{{event.description|safe }}</p>
+</div>
+{% endblock %}

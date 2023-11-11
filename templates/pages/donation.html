@@ -1,0 +1,97 @@
+{% extends 'pages/base.html' %}
+<!--Content below-->
+
+{% load static %}
+
+<!--load body here-->
+{% block content %}
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-3 wow fadeIn" data-wow-delay="0.1s">
+  <div class="container text-center py-3 mt-3">
+    <h1 class="display-2 text-white mb-3 animated slideInDown">Donation</h1>
+    <nav aria-label="breadcrumb animated slideInDown">
+      <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item" aria-current="page">Donation</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<section class="bg-light py-5">
+  <div class="container px-5 my-5">
+    <div class="text-center mb-5">
+      <h1 class="fw-bolder">Our Bank Details</h1>
+      <p class="lead fw-normal text-muted mb-0">
+        You can make deposit into any of our accounts below. God bless you. In
+        case you need us to call you for any clarification,
+        <a href="{% url 'contact' %}">go here.</a>
+      </p>
+    </div>
+    <div class="row gx-5 justify-content-center">
+      <!-- Pricing card free-->
+      <div class="col-lg-6 col-xl-4">
+        <div class="card mb-5 mb-xl-0">
+          <div class="card-body p-5">
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2">
+                <i class="bi bi-check text-primary"></i>
+                <strong>UK Church Account</strong>
+              </li>
+              <li class="mb-2">Body of Christ Mission</li>
+              <li class="mb-2">Barclays Bank</li>
+              <li class="mb-2">Sort Code: 20-90-74</li>
+              <li class="mb-2 text-muted">73135780</li>
+            </ul>
+            <div class="d-grid">
+              <a class="btn btn-primary" href="#!">Make Deposit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Pricing card pro-->
+      <div class="col-lg-6 col-xl-4">
+        <div class="card mb-5 mb-xl-0">
+          <div class="card-body p-5">
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2">
+                <i class="bi bi-check text-primary"></i>
+                <strong>Account 2</strong>
+              </li>
+              <li class="mb-2">Body of Christ Mission Church</li>
+              <li class="mb-2">First Bank of Nigeria</li>
+              <li class="mb-2 text-muted">xxxxxxxxxxx</li>
+            </ul>
+            <div class="d-grid">
+              <a class="btn btn-primary" href="#!">Make Deposit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing card enterprise-->
+      <div class="col-lg-6 col-xl-4">
+        <div class="card mb-5 mb-xl-0">
+          <div class="card-body p-5">
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2">
+                <i class="bi bi-check text-primary"></i>
+                <strong>Account 3</strong>
+              </li>
+              <li class="mb-2">Body of Christ Mission Church</li>
+              <li class="mb-2">Access Bank Plc</li>
+              <li class="mb-2 text-muted">xxxxxxxxxxx</li>
+            </ul>
+            <div class="d-grid">
+              <a class="btn btn-primary" href="#!">Make Deposit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--content-->
+{% endblock %}
