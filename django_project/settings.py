@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "pages.apps.PagesConfig",
     "sorl.thumbnail",
@@ -146,7 +147,7 @@ STATIC_URL = "/static/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# STATICFILES_DIRS = [BASE_DIR / "static"]  # for development
+STATICFILES_DIRS = [BASE_DIR / "static"]  # for development
 
 # Media files (uploaded user files)
 MEDIA_URL = "/media/"
