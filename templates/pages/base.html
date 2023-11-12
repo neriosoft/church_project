@@ -9,7 +9,7 @@
     <meta content="" name="description" />
 
     <!-- Favicon -->
-    <link href="{% static 'pages/img/ico/favicon.ico' %}" rel="icon" />
+    <link href="{% static 'pages/imgs/ico/favicon.ico' %}" rel="icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -66,8 +66,8 @@
         <div class="d-flex justify-content-between">
           <div>
             <small class="me-3"
-              ><i class="fa fa-map-marker-alt me-2"></i>Woolwich Polytechnic For
-              Boys Hutchins Road, Thamesmead SE28 8AT</small
+              ><i class="fa fa-map-marker-alt me-2"></i>Woolwich Polytechnic
+              Boys, Hutchins Road, Thamesmead, London SE28 8AT</small
             >
             <small class="me-3"
               ><i class="fa fa-clock me-2"></i>Mon-Sat 09am-5pm, Sun
@@ -95,7 +95,7 @@
             <i class="bi bi-telephone-inbound fs-2"></i>
             <div class="ms-3">
               <h5 class="text-white mb-0">Call Now</h5>
-              <span>07711862708</span>
+              <span>+44(0)7711862708</span>
             </div>
           </div>
           <a href="{% url 'index' %}" class="h1 text-white mb-0"
@@ -125,7 +125,7 @@
           >
             <img
               class="p-1 mb-n5"
-              src="{% static 'pages/img/mobile_logo.png' %}"
+              src="{% static 'pages/imgs/mobile_logo.png' %}"
               width="35%"
               alt="our logo"
             />
@@ -156,13 +156,19 @@
               >
             </div>
             <div class="ms-auto d-none d-lg-flex">
-              <a class="btn btn-sm-square btn-primary ms-2" href=""
+              <a
+                class="btn btn-sm-square btn-primary ms-2"
+                href="https://shorturl.at/abDI6"
+                target="_blank"
                 ><i class="fab fa-facebook-f"></i
               ></a>
               <a class="btn btn-sm-square btn-primary ms-2" href=""
                 ><i class="fab fa-linkedin-in"></i
               ></a>
-              <a class="btn btn-sm-square btn-primary ms-2" href=""
+              <a
+                class="btn btn-sm-square btn-primary ms-2"
+                href="https://shorturl.at/ruNSZ"
+                target="_blank"
                 ><i class="fab fa-youtube"></i
               ></a>
             </div>
@@ -189,7 +195,7 @@
             <a href="{% url 'index' %}" class="navbar-brand">
               <img
                 class="text-center"
-                src="{% static 'pages/img/footLogo.png' %}"
+                src="{% static 'pages/imgs/footLogo.png' %}"
                 width="20%"
                 alt="our logo"
               />
@@ -199,22 +205,28 @@
               Body of Christ Mission (SOLUTION GROUND)
             </p>
             <p>
-              <i class="fa fa-map-marker-alt me-2"></i>Woolwich Polytechnic For
-              Boys Hutchins Road,<br />
-              &nbsp;&nbsp;&nbsp;&nbsp; Thamesmead SE28 8AT
+              <i class="fa fa-map-marker-alt me-2"></i>Woolwich Polytechnic
+              Boys, Hutchins Road,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp; Thamesmead London SE28 8AT
             </p>
-            <p><i class="fa fa-phone-alt me-2"></i>07711862708</p>
+            <p><i class="fa fa-phone-alt me-2"></i>+44(0)7711862708</p>
             <p>
               <i class="fa fa-envelope me-2"></i>info@bodyofchristmission.org
             </p>
             <div class="d-flex mt-4">
-              <a class="btn btn-lg-square btn-primary me-2" href="#"
+              <a
+                class="btn btn-lg-square btn-primary me-2"
+                href="https://shorturl.at/abDI6"
+                target="_blank"
                 ><i class="fab fa-facebook-f"></i
               ></a>
               <a class="btn btn-lg-square btn-primary me-2" href="#"
                 ><i class="fab fa-linkedin-in"></i
               ></a>
-              <a class="btn btn-lg-square btn-primary me-2" href="#"
+              <a
+                class="btn btn-lg-square btn-primary me-2"
+                href="https://shorturl.at/ruNSZ"
+                target="_blank"
                 ><i class="fab fa-youtube"></i
               ></a>
             </div>
@@ -223,13 +235,14 @@
             <div class="row g-5">
               <div class="col-sm-6">
                 <h4 class="text-light mb-4">Quick Links</h4>
-                <a class="btn btn-link" href="{% url 'contact' %}">About Us</a>
+                <a class="btn btn-link" href="{% url 'about' %}">About Us</a>
                 <a class="btn btn-link" href="{% url 'contact' %}"
                   >Contact Us</a
                 >
-                <a class="btn btn-link" href="#">Our Services</a>
+                <a class="btn btn-link" href="{% url 'gallery' %}"
+                  >Our Gallery</a
+                >
                 <a class="btn btn-link" href="#">Terms & Condition</a>
-                <a class="btn btn-link" href="#">Support</a>
               </div>
               <div class="col-sm-6">
                 <h4 class="text-light mb-4">Popular Links</h4>
@@ -237,9 +250,10 @@
                 <a class="btn btn-link" href="{% url 'contact' %}"
                   >Contact Us</a
                 >
-                <a class="btn btn-link" href="#">Our Services</a>
+                <a class="btn btn-link" href="{% url 'gallery' %}"
+                  >Our Gallery</a
+                >
                 <a class="btn btn-link" href="#">Terms & Condition</a>
-                <a class="btn btn-link" href="#">Support</a>
               </div>
               <div class="col-sm-12">
                 <h4 class="text-light mb-4">Newsletter</h4>
@@ -373,14 +387,31 @@
     <script src="{% static 'pages/lib/waypoints/waypoints.min.js' %}"></script>
     <script src="{% static 'pages/lib/counterup/counterup.min.js' %}"></script>
     <script src="{% static 'pages/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'pages/lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="	https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.1.1/shortcuts/infinite.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="{% static 'pages/js/main.js' %}"></script>
 
     <!--Navbar active Javascript-->
     <script>
-      $(".main-item a").click(function () {
-        $(this).addClass("active").siblings().removeClass("active");
+      $(document).ready(function () {
+        var $links = $(".main-item a");
+
+        $links.closest(".active").removeClass("active");
+
+        $links
+          .filter(function () {
+            return this.href === window.location.href;
+          })
+          .closest("a")
+          .addClass("active");
+      });
+    </script>
+
+    <script>
+      var infinite = new Waypoint.Infinite({
+        element: $(".infinite-container")[0],
       });
     </script>
   </body>

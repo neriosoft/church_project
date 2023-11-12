@@ -53,27 +53,17 @@ def event_page(request):
     all_events = Event.objects.all()
 
     # pagination
-    page = request.GET.get("page")
-    results = 2
-    paginator = Paginator(all_events, results)
-
+    # pagination
+    numbers_list = all_events
+    page = request.GET.get("page", 1)
+    paginator = Paginator(numbers_list, 10)
     try:
-        all_events = paginator.page(page)
-
+        numbers = paginator.page(page)
     except PageNotAnInteger:
-        page = 1
-        all_events = paginator.page(page)
-
+        numbers = paginator.page(1)
     except EmptyPage:
-        page = paginator.num_pages
-        all_events = paginator.page(page)
-
-    custom_range = range(1, 10)
-    context = {
-        "events": all_events,
-        "paginator": paginator,
-        "custom_range": custom_range,
-    }
+        numbers = paginator.page(paginator.num_pages)
+    context = {"events": numbers}
     return render(request, "pages/events.html", context)
 
 
@@ -85,6 +75,18 @@ def event_detail_page(request, slug):
 
 def gallery_page(request):
     images_obj = Gallery.objects.all()
-    images_path = {"galleries": images_obj}
+
+    # pagination
+    numbers_list = images_obj
+    page = request.GET.get("page", 1)
+    paginator = Paginator(numbers_list, 5)
+    try:
+        numbers = paginator.page(page)
+    except PageNotAnInteger:
+        numbers = paginator.page(1)
+    except EmptyPage:
+        numbers = paginator.page(paginator.num_pages)
+    # images_path = {"galleries": images_obj}
+    images_path = {"galleries": numbers}
 
     return render(request, "pages/gallery.html", images_path)

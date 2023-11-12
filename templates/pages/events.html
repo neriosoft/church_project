@@ -23,7 +23,7 @@
   <!--content-->
   <div class="row gy-5 gx-0 my-gallery">
     <div class="my-1 text-center">
-      <h2 class="py-3">All Events</h2>
+      <h2 class="py-4">All Events</h2>
       <span>Kindly check here to see our latest events.</span>
     </div>
 
@@ -47,8 +47,8 @@
             <div class="card-body px-4">
               <h3 class="card-title">{{event.title}}</h3>
               <p class="card-text">{{event.description |safe | truncatechars:180}}</p>
-              <div class="pb-3 text-primary">
-                <i class="bi bi-calendar-event px-1"></i>{{event.date}}
+              <div class="pb-3 text-primary h5">
+                <i class="bi bi-calendar-event px-1"></i><strong>{{event.date}}</strong>
               </div>
             </div>
           </div>
@@ -58,21 +58,9 @@
   </a>
       {% endfor %}
 
-      
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-
-          {% for page in paginator.page_range %}
-
-          {% if page == all_events.number %}
-            <li class="page-item"><a class="page-link" href="?page={{page}}">{{page}}</a></li>
-          {% else %}
-            <li class="page-item"><a class="page-link" href="?page={{page}}">{{page}}</a></li>
-          {% endif %}
-          {% endfor %}
-
-        </ul>
-      </nav>
+      {% if events.has_next %}
+  <a class="infinite-more-link btn-primary p-1" href="?page={{ events.next_page_number }}">Load More</a>
+{% endif %}
     </div>
   </div>
 </div>
