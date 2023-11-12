@@ -27,7 +27,7 @@ pytz==2023.3.post1
 PyYAML==6.0.1
 requests==2.31.0
 six==1.16.0
-sorl-thumbnail==12.10.0
+sorl-thumbnail==12.9.0
 sqlparse==0.4.4
 tablib==3.5.0
 text-unidecode==1.3
