@@ -239,7 +239,7 @@ div .nav-link.active {
 
 /*** Features ***/
 .feature {
-    background: linear-gradient(rgba(3, 27, 78, .3), rgba(3, 27, 78, .3)), url(../img/features.jpg) left center no-repeat;
+    background: linear-gradient(rgba(3, 27, 78, .3), rgba(3, 27, 78, .3)), url(../imgs/features.jpg) left center no-repeat;
     background-size: cover;
 }
 
@@ -492,7 +492,7 @@ div .nav-link.active {
 
 /*** Testimonial ***/
 .testimonial {
-    background: linear-gradient(rgba(3, 27, 78, .3), rgba(3, 27, 78, .3)), url(../img/testimon.jpg) left center no-repeat;
+    background: linear-gradient(rgba(3, 27, 78, .3), rgba(3, 27, 78, .3)), url(../imgs/testimon.jpg) left center no-repeat;
     background-size: cover;
 }
 
@@ -552,7 +552,7 @@ div .nav-link.active {
 
 /*** Footer ***/
 .footer {
-    background: linear-gradient(rgba(3, 27, 78, .3), rgba(3, 27, 78, .3)), url(../img/footer.png) center center no-repeat;
+    background: linear-gradient(rgba(3, 27, 78, .3), rgba(3, 27, 78, .3)), url(../imgs/footer.png) center center no-repeat;
     background-size: contain;
 }
 
