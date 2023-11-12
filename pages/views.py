@@ -7,21 +7,19 @@ def index_page(request):
     all_events = Event.objects.all()
     teams = Team.objects.all()[0:4]
     if request.method == "POST":
-        if request.POST.get("form-type") == "formTwo":
-            name = request.POST["appoint_name"]
-            email = request.POST["appoint_email"]
-            phone = request.POST["appoint_phone"]
-            appoint = request.POST["appoint"]
-            message = request.POST["appoint_message"]
+        name = request.POST["appoint_name"]
+        email = request.POST["appoint_email"]
+        phone = request.POST["appoint_phone"]
+        appoint = request.POST["appoint"]
+        message = request.POST["appoint_message"]
 
-            if email not in Appointment:
-                appointment = Appointment.objects.create(
-                    full_name=name,
-                    email=email,
-                    phone=phone,
-                    how_to_reach=appoint,
-                    message=message,
-                )
+        appointment = Appointment.objects.create(
+            full_name=name,
+            email=email,
+            phone=phone,
+            how_to_reach=appoint,
+            message=message,
+        )
     return render(request, "pages/index.html", {"events": all_events, "teams": teams})
 
 
