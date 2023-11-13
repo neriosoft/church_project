@@ -152,7 +152,7 @@ STATIC_URL = "/static/"
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATICFILES_DIRS = [BASE_DIR / "static"]  # for development
+# STATICFILES_DIRS = [BASE_DIR / "static"]  # for development
 
 # Media files (uploaded user files)
 MEDIA_URL = "/media/"
