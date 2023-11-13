@@ -32,8 +32,13 @@ DEBUG = os.environ.get("DEBUG", True) == True
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
+    "localhost",
     "https://church-project-pcm7.onrender.com",
     "church-project-pcm7.onrender.com",
+    "www.bodyofchristmission.org",
+    "bodyofchristmission.org",
+    "https://www.bodyofchristmission.org",
+    "http://www.bodyofchristmission.org",
 ]
 
 
