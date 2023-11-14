@@ -4,9 +4,16 @@
   <head>
     <meta charset="utf-8" />
     <title>Church - Body of Christ Mission</title>
+    <meta property="og:site_name" content="Body of Christ Mission">
+    <meta property="og:title" content="Body of Christ Mission">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta content="" name="keywords" />
-    <meta content="" name="description" />
+    <meta content="church, prayers, conselling, donation, fasting" name="keywords" />
+    <meta
+      property="og:description"
+      content="We are a Pentecostal, Christian Church and our full name is Body of Christ Mission"
+    />
+    <meta property="og:image" content="https://drive.google.com/file/d/13yhqO_1LFfPKuZ8vKy0VWmFHdlzVJrnF/view">
+    <meta property="og:type" content="church">
 
     <!-- Favicon -->
     <link href="{% static 'pages/imgs/ico/favicon.ico' %}" rel="icon" />
@@ -78,7 +85,7 @@
             <a class="breadcrumb-item small text-body" href="#">Career</a>
             <a class="breadcrumb-item small text-body" href="#">Support</a>
             <a class="breadcrumb-item small text-body" href="#">Terms</a>
-            <a class="breadcrumb-item small text-body" href="#">FAQs</a>
+            <a class="breadcrumb-item small text-body" href="{% url "sitemap" %}">Site Map</a>
           </nav>
         </div>
       </div>

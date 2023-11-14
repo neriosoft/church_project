@@ -20,12 +20,19 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.urls import re_path
+from django.contrib.sitemaps.views import sitemap
+from pages.sitemaps import EventSitemap
+
+sitemaps = {
+    "events": EventSitemap,
+}
 
 
 urlpatterns = [
     path("jet/", include("jet.urls", "jet")),
     path("account/admin/", admin.site.urls),
     path("", include("pages.urls")),
+    path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
 ]
 
 if settings.DEBUG:
