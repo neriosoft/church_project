@@ -160,7 +160,8 @@ STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATIC_URL = "/static/"
 
-STATICFILES_DIRS = [BASE_DIR / "static"]  # for development
+if DEBUG:
+    STATICFILES_DIRS = [BASE_DIR / "static"]  # for development
 
 # Media files (uploaded user files)
 MEDIA_URL = "/media/"
