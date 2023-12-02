@@ -7,6 +7,7 @@ from cloudinary.models import CloudinaryField
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
+from django.conf import settings
 
 
 # Create your models here.
@@ -52,7 +53,10 @@ class Gallery(models.Model):
         verbose_name_plural = "galleries"
 
     def image_tag(self):  # new
-        return mark_safe('<img src="%s" width="100" height="100" />' % (self.image.url))
+        return mark_safe(
+            '<img src="%s" width="100" height="100" />'
+            % (settings.CLOUDINARY_ROOT_URL, self.image)
+        )
 
     def __str__(self):
         return self.title
@@ -74,7 +78,10 @@ class Event(models.Model):
         return super().save(*args, **kwargs)
 
     def image_tag(self):  # new
-        return mark_safe('<img src="%s" width="120" height="120" />' % (self.image.url))
+        return mark_safe(
+            '<img src="%s" width="120" height="120" />'
+            % (settings.CLOUDINARY_ROOT_URL, self.image)
+        )
 
     class Meta:
         ordering = ["-id"]
@@ -94,7 +101,10 @@ class Team(models.Model):
     linkedin_url = models.CharField(max_length=100, null=True, blank=True)
 
     def image_tag(self):  # new
-        return mark_safe('<img src="%s" width="120" height="120" />' % (self.image.url))
+        return mark_safe(
+            '<img src="%s" width="120" height="120" />'
+            % (settings.CLOUDINARY_ROOT_URL, self.image)
+        )
 
     class Meta:
         ordering = ["-id"]
