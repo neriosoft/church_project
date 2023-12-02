@@ -3,6 +3,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from uuid import uuid4
 from django.urls import reverse
+from cloudinary.models import CloudinaryField
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
@@ -41,7 +42,7 @@ class Appointment(models.Model):
 class Gallery(models.Model):
     title = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
-    image = models.ImageField(upload_to="pictures/")
+    image = CloudinaryField("image")
     popup_id = models.CharField(max_length=20, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -51,9 +52,7 @@ class Gallery(models.Model):
         verbose_name_plural = "galleries"
 
     def image_tag(self):  # new
-        return mark_safe(
-            '<img src="/../../media/%s" width="100" height="100" />' % (self.image)
-        )
+        return mark_safe('<img src="%s" width="100" height="100" />' % (self.image))
 
     def __str__(self):
         return self.title
@@ -64,7 +63,7 @@ class Event(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(unique=True, db_index=True)
     description = RichTextField(config_name="default")
-    image = models.ImageField(upload_to="events/")
+    image = CloudinaryField("image")
     date = models.DateField()
 
     def get_absolute_url(self):
@@ -75,9 +74,7 @@ class Event(models.Model):
         return super().save(*args, **kwargs)
 
     def image_tag(self):  # new
-        return mark_safe(
-            '<img src="/../../media/%s" width="120" height="120" />' % (self.image)
-        )
+        return mark_safe('<img src="%s" width="120" height="120" />' % (self.image))
 
     class Meta:
         ordering = ["-id"]
@@ -91,15 +88,13 @@ class Event(models.Model):
 class Team(models.Model):
     name = models.CharField(max_length=40)
     title = models.CharField(max_length=40)
-    image = models.ImageField(upload_to="teams/")
+    image = CloudinaryField("image")
     facebook_url = models.CharField(max_length=100, null=True, blank=True)
     twitter_url = models.CharField(max_length=100, null=True, blank=True)
     linkedin_url = models.CharField(max_length=100, null=True, blank=True)
 
     def image_tag(self):  # new
-        return mark_safe(
-            '<img src="/../../media/%s" width="120" height="120" />' % (self.image)
-        )
+        return mark_safe('<img src="%s" width="120" height="120" />' % (self.image))
 
     class Meta:
         ordering = ["-id"]

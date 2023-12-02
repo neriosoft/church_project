@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 import dj_database_url
 
 
@@ -25,6 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get(
     "SECRET_KEY", "django-insecure-iu=o#nkiof3-#n#5$ypbi*prn@vkeb@duv^55+7=4lumf_#c8n"
+)
+
+# adding cloudinary config
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUD_NAME"),
+    api_key=os.environ.get("CLOUD_API_KEY"),
+    api_secret=os.environ.get("CLOUD_API_SECRET"),
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -57,6 +67,7 @@ INSTALLED_APPS = [
     "pages.apps.PagesConfig",
     "sorl.thumbnail",
     "ckeditor",
+    "cloudinary",
 ]
 
 SITE_ID = 1
@@ -164,7 +175,8 @@ STATICFILES_DIRS = [BASE_DIR / "static"]  # for development
 
 # Media files (uploaded user files)
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+MEDIA_ROOT = BASE_DIR / "mediafiles"
 
 
 # If you want compression with caching
