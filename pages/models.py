@@ -8,6 +8,7 @@ from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 from django.conf import settings
+import os
 
 
 # Create your models here.
@@ -103,7 +104,7 @@ class Team(models.Model):
     def image_tag(self):  # new
         return mark_safe(
             '<img src="%s" width="120" height="120" />'
-            % (settings.CLOUDINARY_ROOT_URL, self.image)
+            % os.path.join(settings.CLOUDINARY_ROOT_URL, self.image)
         )
 
     class Meta:
