@@ -55,7 +55,7 @@ class Gallery(models.Model):
         verbose_name_plural = "galleries"
 
     def image_tag(self):  # new
-        myImage = cloudinary.CloudinaryImage("image").build_url()
+        myImage = cloudinary.CloudinaryImage("image.jpg").build_url()
         return mark_safe(f'<img src="{myImage}" width="100" height="100" />')
 
     def __str__(self):
@@ -78,7 +78,7 @@ class Event(models.Model):
         return super().save(*args, **kwargs)
 
     def image_tag(self):  # new
-        myImage = cloudinary.CloudinaryImage("image").build_url()
+        myImage = cloudinary.CloudinaryImage("image.jpg").build_url()
         return mark_safe(f'<img src="{myImage}" width="120" height="120" />')
 
     class Meta:
@@ -99,7 +99,7 @@ class Team(models.Model):
     linkedin_url = models.CharField(max_length=100, null=True, blank=True)
 
     def image_tag(self):  # new
-        myImage = cloudinary.CloudinaryImage("image").build_url()
+        myImage = cloudinary.CloudinaryImage("image.pg").build_url()
         return mark_safe(f'<img src="{myImage}" width="120" height="120" />')
 
     class Meta:
