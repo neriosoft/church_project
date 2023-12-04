@@ -3,6 +3,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from uuid import uuid4
 from django.urls import reverse
+import cloudinary
 from cloudinary.models import CloudinaryField
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
@@ -56,7 +57,7 @@ class Gallery(models.Model):
     def image_tag(self):  # new
         return mark_safe(
             '<img src="%s" width="100" height="100" />'
-            % (settings.CLOUDINARY_ROOT_URL, self.image)
+            % (cloudinary.CloudinaryImage("quickstart_butterfly").build_url())
         )
 
     def __str__(self):
@@ -81,7 +82,7 @@ class Event(models.Model):
     def image_tag(self):  # new
         return mark_safe(
             '<img src="%s" width="120" height="120" />'
-            % (settings.CLOUDINARY_ROOT_URL, self.image)
+            % (cloudinary.CloudinaryImage("quickstart_butterfly").build_url())
         )
 
     class Meta:
@@ -104,7 +105,9 @@ class Team(models.Model):
     def image_tag(self):  # new
         return mark_safe(
             '<img src="%s" width="120" height="120" />'
-            % os.path.join(settings.CLOUDINARY_ROOT_URL, self.image)
+            % os.path.join(
+                cloudinary.CloudinaryImage("quickstart_butterfly").build_url()
+            )
         )
 
     class Meta:
