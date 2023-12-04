@@ -37,6 +37,8 @@ cloudinary.config(
     api_secret=os.environ.get("CLOUD_API_SECRET"),
 )
 
+CLOUDINARY_ROOT_URL = "http://res.cloudinary.com/dk4nwegl7/image/upload/"
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", True) == True
 
