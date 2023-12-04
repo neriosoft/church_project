@@ -56,7 +56,7 @@ class Gallery(models.Model):
 
     def image_tag(self):  # new
         myImage = cloudinary.CloudinaryImage("image").build_url()
-        return mark_safe('<img src="%s" width="100" height="100" />' % (myImage))
+        return mark_safe(f'<img src="{myImage}" width="100" height="100" />')
 
     def __str__(self):
         return self.title
@@ -79,7 +79,7 @@ class Event(models.Model):
 
     def image_tag(self):  # new
         myImage = cloudinary.CloudinaryImage("image").build_url()
-        return mark_safe('<img src="%s" width="120" height="120" />' % (myImage))
+        return mark_safe(f'<img src="{myImage}" width="120" height="120" />')
 
     class Meta:
         ordering = ["-id"]
@@ -100,7 +100,7 @@ class Team(models.Model):
 
     def image_tag(self):  # new
         myImage = cloudinary.CloudinaryImage("image").build_url()
-        return mark_safe(f'<img src="%s" width="120" height="120" />' % (myImage))
+        return mark_safe(f'<img src="{myImage}" width="120" height="120" />')
 
     class Meta:
         ordering = ["-id"]
