@@ -55,7 +55,7 @@ class Gallery(models.Model):
         verbose_name_plural = "galleries"
 
     def image_tag(self):  # new
-        return '<img src="{}" width="100" height="100" />'.format(self.image)
+        return mark_safe('<img src="%s" width="100" height="100" />' % (self.image.url))
 
     def __str__(self):
         return self.title
@@ -77,7 +77,7 @@ class Event(models.Model):
         return super().save(*args, **kwargs)
 
     def image_tag(self):  # new
-        return '<img src="{}" width="120" height="120" />'.format(self.image)
+        return mark_safe('<img src="%s" width="120" height="120" />' % (self.image.url))
 
     class Meta:
         ordering = ["-id"]
@@ -97,7 +97,9 @@ class Team(models.Model):
     linkedin_url = models.CharField(max_length=100, null=True, blank=True)
 
     def image_tag(self):  # new
-        return '<img src="{}" width="120" height="120" />'.format(self.image)
+        return mark_safe(
+            f'<img src="%s" width="120" height="120" />' % (self.image.url)
+        )
 
     class Meta:
         ordering = ["-id"]
