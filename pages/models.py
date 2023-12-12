@@ -8,8 +8,6 @@ from cloudinary.models import CloudinaryField
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
-from django.conf import settings
-import os
 
 
 # Create your models here.
