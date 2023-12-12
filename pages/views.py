@@ -13,13 +13,14 @@ def index_page(request):
         appoint = request.POST["appoint"]
         message = request.POST["appoint_message"]
 
-        appointment = Appointment.objects.create(
+        appointment = Appointment(
             full_name=name,
             email=email,
             phone=phone,
             how_to_reach=appoint,
             message=message,
         )
+        appointment.save()
     return render(request, "pages/index.html", {"events": all_events, "teams": teams})
 
 
@@ -29,9 +30,8 @@ def contact_page(request):
         email = request.POST["email"]
         subject = request.POST["subject"]
         message = request.POST["message"]
-        contact = Contact.objects.create(
-            full_name=name, email=email, subject=subject, message=message
-        )
+        contact = Contact(full_name=name, email=email, subject=subject, message=message)
+        contact.save()
 
     return render(request, "pages/contact.html")
 
