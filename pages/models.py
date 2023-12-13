@@ -12,9 +12,9 @@ from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Contact(models.Model):
-    full_name = models.CharField(max_length=150)
+    full_name = models.CharField(max_length=180)
     email = models.EmailField(unique=True)
-    subject = models.CharField(max_length=150)
+    subject = models.CharField(max_length=180)
     message = models.TextField()
 
     def __str__(self):
@@ -26,10 +26,10 @@ class Contact(models.Model):
 
 # Appointment
 class Appointment(models.Model):
-    full_name = models.CharField(max_length=150)
+    full_name = models.CharField(max_length=180)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
-    how_to_reach = models.CharField(max_length=18)
+    how_to_reach = models.CharField(max_length=20)
     message = models.TextField()
 
     def __unicode__(self):
