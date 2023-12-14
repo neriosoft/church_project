@@ -17,6 +17,9 @@ class Contact(models.Model):
     subject = models.CharField(max_length=180)
     message = models.TextField()
 
+    class Meta:
+        verbose_name_plural = "Contacts"
+
     def __str__(self):
         return self.subject
 
@@ -31,6 +34,9 @@ class Appointment(models.Model):
     phone = models.CharField(max_length=15)
     how_to_reach = models.CharField(max_length=20)
     message = models.TextField()
+
+    class Meta:
+        verbose_name_plural = "Appointments"
 
     def __unicode__(self):
         return self.full_name
