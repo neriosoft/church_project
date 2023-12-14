@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Contact, Appointment, Gallery, Event, Team
+from .models import MyContact, Booking, Gallery, Event, Team
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
@@ -13,7 +13,7 @@ def index_page(request):
         appoint = request.POST["appoint"]
         message = request.POST["appoint_message"]
 
-        appointment = Appointment(
+        appointment = Booking(
             full_name=name,
             email=email,
             phone=phone,
@@ -30,7 +30,9 @@ def contact_page(request):
         email = request.POST["email"]
         subject = request.POST["subject"]
         message = request.POST["message"]
-        contact = Contact(full_name=name, email=email, subject=subject, message=message)
+        contact = MyContact(
+            full_name=name, email=email, subject=subject, message=message
+        )
         contact.save()
 
     return render(request, "pages/contact.html")

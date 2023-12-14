@@ -1,14 +1,14 @@
 from django.contrib import admin
-from .models import Contact, Appointment, Gallery, Event, Team
+from .models import MyContact, Booking, Gallery, Event, Team
 from import_export.admin import ExportActionMixin
 
 
-class ContactAdmin(ExportActionMixin, admin.ModelAdmin):
+class MyContactAdmin(ExportActionMixin, admin.ModelAdmin):
     list_display = ("full_name", "email", "subject", "message")
     search_fields = ("full_name",)
 
 
-class AppointmentAdmin(ExportActionMixin, admin.ModelAdmin):
+class BookingAdmin(ExportActionMixin, admin.ModelAdmin):
     list_display = ("full_name", "email", "phone", "how_to_reach", "message")
     search_fields = ("full_name", "phone", "email", "how_to_reach")
 
@@ -33,12 +33,12 @@ class TeamAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(Contact, ContactAdmin)
-admin.site.register(Appointment, AppointmentAdmin)
+admin.site.register(MyContact, MyContactAdmin)
+admin.site.register(Booking, BookingAdmin)
 admin.site.register(Gallery, GalleryAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Team, TeamAdmin)
 
 admin.site.site_header = "Body of Christ Mission Administration"
-admin.site.site_title = "Body of Christ Mission Church"
+admin.site.site_title = "Body of Christ Mission"
 admin.site.index_title = "Body of Christ Mission"

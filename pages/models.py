@@ -11,14 +11,14 @@ from ckeditor.fields import RichTextField
 
 
 # Create your models here.
-class Contact(models.Model):
+class MyContact(models.Model):
     full_name = models.CharField(max_length=180)
     email = models.EmailField(unique=True)
     subject = models.CharField(max_length=180)
     message = models.TextField()
 
     class Meta:
-        verbose_name_plural = "Contacts"
+        verbose_name_plural = "My Contacts"
 
     def __str__(self):
         return self.subject
@@ -28,7 +28,7 @@ class Contact(models.Model):
 
 
 # Appointment
-class Appointment(models.Model):
+class Booking(models.Model):
     full_name = models.CharField(max_length=180)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
@@ -36,7 +36,7 @@ class Appointment(models.Model):
     message = models.TextField()
 
     class Meta:
-        verbose_name_plural = "Appointments"
+        verbose_name_plural = "Bookings"
 
     def __unicode__(self):
         return self.full_name
