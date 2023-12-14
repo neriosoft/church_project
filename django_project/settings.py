@@ -39,7 +39,7 @@ cloudinary.config(
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", True) == True
+DEBUG = os.environ.get("DEBUG", False) == True
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -109,7 +109,7 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if not DEBUG:
+if DEBUG:
     DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 else:
