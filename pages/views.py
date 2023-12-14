@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from .models import MyContact, Booking, Gallery, Event, Team
+from .models import MyContact, Booking, Gallery, Event, Team, Banner
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
 def index_page(request):
+    first_banner = Banner.objects.all()[0]
+    other_banners = Banner.objects.all()[1:]
     all_events = Event.objects.all()
     teams = Team.objects.all()[0:4]
     if request.method == "POST":
@@ -21,7 +23,16 @@ def index_page(request):
             message=message,
         )
         appointment.save()
-    return render(request, "pages/index.html", {"events": all_events, "teams": teams})
+    return render(
+        request,
+        "pages/index.html",
+        {
+            "events": all_events,
+            "teams": teams,
+            "first_banner": first_banner,
+            "other_banners": other_banners,
+        },
+    )
 
 
 def contact_page(request):

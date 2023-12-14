@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import MyContact, Booking, Gallery, Event, Team
+from .models import MyContact, Booking, Gallery, Event, Team, Banner
 from import_export.admin import ExportActionMixin
 
 
@@ -32,12 +32,19 @@ class TeamAdmin(admin.ModelAdmin):
     list_filter = ("name",)
 
 
+class BannerAdmin(admin.ModelAdmin):
+    list_display = ("title", "image_tag")
+    search_fields = ("title",)
+    list_filter = ("title",)
+
+
 # Register your models here.
 admin.site.register(MyContact, MyContactAdmin)
 admin.site.register(Booking, BookingAdmin)
 admin.site.register(Gallery, GalleryAdmin)
 admin.site.register(Event, EventAdmin)
 admin.site.register(Team, TeamAdmin)
+admin.site.register(Banner, BannerAdmin)
 
 admin.site.site_header = "Body of Christ Mission Administration"
 admin.site.site_title = "Body of Christ Mission"

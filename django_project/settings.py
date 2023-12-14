@@ -32,14 +32,14 @@ SECRET_KEY = os.environ.get(
 
 # adding cloudinary config
 cloudinary.config(
-    cloud_name=os.environ.get("CLOUD_NAME"),
-    api_key=os.environ.get("CLOUD_API_KEY"),
-    api_secret=os.environ.get("CLOUD_API_SECRET"),
+    cloud_name=os.environ.get("CLOUD_NAME", "dk4nwegl7"),
+    api_key=os.environ.get("CLOUD_API_KEY", "921517243635613"),
+    api_secret=os.environ.get("CLOUD_API_SECRET", "FfPYxFbxIV7pi5r3VNMNeqhht1Q"),
 )
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", False) == True
+DEBUG = os.environ.get("DEBUG", True) == True
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -109,7 +109,7 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if DEBUG:
+if not DEBUG:
     DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
 
 else:

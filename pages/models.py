@@ -111,3 +111,18 @@ class Team(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Banner(models.Model):
+    title = models.CharField(max_length=255, null=True, blank=True)
+    description = models.TextField()
+    image = CloudinaryField("banner")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def image_tag(self):  # new
+        return mark_safe(f'<img src="%s" width="160" height="90" />' % (self.image.url))
+
+    class Meta:
+        ordering = ["id"]
+        verbose_name_plural = "banners"
