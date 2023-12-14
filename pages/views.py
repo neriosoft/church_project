@@ -23,6 +23,7 @@ def index_page(request):
             message=message,
         )
         appointment.save()
+
     return render(
         request,
         "pages/index.html",
